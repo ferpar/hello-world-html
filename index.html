@@ -8,6 +8,70 @@
   <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 </head>
 <body>
-  
+  <div id="root"></div>  
+  <script type="text/babel">
+
+
+  //1 functional component examples
+
+
+//   const App = (props) => (
+//       <div>
+//         <h1>Hello  react!</h1>
+//         <p>this is not important</p>
+//       </div>
+//     )
+//
+//   const App = function(props) {
+//       return (
+//         <div>
+//           <h1>Hello  react!</h1>
+//           <p>this is not important</p>
+//         </div>
+//       )
+//   }
+//
+//   function App(props) {
+//       return (
+//         <div>
+//           <h1>Hello  react!</h1>
+//           <p>this is not important</p>
+//         </div>
+//       )
+//     }
+
+  //2 class component, composition, state & props
+
+
+    const Greeting = (props) => (
+          <div>
+            <h1>{props.msg}</h1>
+            <p>can be quite simple</p>
+          </div>
+    )
+
+
+    class App extends React.Component {
+
+      constructor(props) {
+        super(props);
+        this.state = {
+          message: "Using React"
+        }
+      }
+
+      render() {
+        return(
+          < Greeting msg={this.state.message}/>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root')
+    );
+
+  </script>
 </body>
 </html>
